@@ -86,7 +86,7 @@ const SEOContent = () => {
 
       {/* Floating Buttons */}
       <div className="fixed bottom-4 left-4 flex flex-col gap-2 z-50">
-        <a href="#" className="bg-[#20b2aa] text-white font-bold py-1 px-4 rounded shadow">Whatsapp</a>
+        <a href="https://wa.me/917589045547" className="bg-[#20b2aa] text-white font-bold py-1 px-4 rounded shadow">Whatsapp</a>
         <a href="#" className="bg-[#20b2aa] text-white font-bold py-1 px-4 rounded shadow">Telegram</a>
       </div>
       <div className="fixed bottom-4 right-4 z-50">
