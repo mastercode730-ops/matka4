@@ -1,6 +1,6 @@
 /* ════════════════════════════════════════════════════════
    SATTA KING LIFE — Matka Satta Biz (inspired by sattaking.life)
-   Cyber Dark Luxury × Neon Emerald & Gold × Live Result Board
+   Cyber Dark Luxury × Neon Emerald & Gold × 100% Fully Responsive
    ════════════════════════════════════════════════════════ */
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Share+Tech+Mono&family=Bebas+Neue&display=swap');
@@ -27,6 +27,11 @@
   padding: 0;
 }
 
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--bg);
   background-image: radial-gradient(circle at 50% 0%, #064e3b 0%, var(--bg) 65%);
@@ -36,7 +41,8 @@ body {
   font-size: 15px;
   line-height: 1.6;
   min-height: 100vh;
-  padding-bottom: 70px;
+  padding-bottom: 80px;
+  overflow-x: hidden;
 }
 
 a {
@@ -45,9 +51,10 @@ a {
 }
 
 .wrap {
+  width: 100%;
   max-width: 980px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 14px;
 }
 
 /* ── Live Spinner ───────────────────────────────────────── */
@@ -77,6 +84,7 @@ a {
 .btn-wa-life {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 8px 18px;
   background: linear-gradient(135deg, var(--wa), var(--wa-dark));
@@ -89,6 +97,7 @@ a {
   text-decoration: none;
   box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
   transition: transform 0.2s ease;
+  white-space: nowrap;
 }
 
 .btn-wa-life:hover {
@@ -97,49 +106,49 @@ a {
 }
 
 .wa-life-banner {
-  margin: 18px 0;
-  padding: 16px 20px;
+  margin: 16px 0;
+  padding: 14px 18px;
   background: linear-gradient(135deg, #09090b 0%, #064e3b 50%, #15803d 100%);
   border: 2px solid var(--emerald);
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
 }
 
 .wa-life-title {
-  font-size: 16px;
+  font-size: clamp(14px, 2.5vw, 16px);
   font-weight: 900;
   color: #ffffff;
 }
 
 .wa-life-sub {
-  font-size: 13px;
+  font-size: clamp(11px, 2vw, 13px);
   color: #a7f3d0;
   margin-top: 2px;
 }
 
 .floating-wa {
   position: fixed;
-  bottom: 20px;
-  left: 20px;
+  bottom: 16px;
+  left: 14px;
   z-index: 50;
 }
 
 .life-fab-wa {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 22px;
+  gap: 6px;
+  padding: 10px 18px;
   background: linear-gradient(135deg, var(--wa), var(--wa-dark));
   border: 2px solid var(--emerald);
   border-radius: 999px;
   color: #ffffff !important;
   font-family: var(--font-main);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   cursor: pointer;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
@@ -158,22 +167,23 @@ a {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 8px 14px;
-  padding: 10px 16px;
+  gap: 6px 12px;
+  padding: 8px 12px;
   background: linear-gradient(135deg, #064e3b 0%, #059669 50%, #064e3b 100%);
   border-bottom: 3px solid var(--gold);
   color: #ffffff;
   text-align: center;
+  font-size: 14px;
 }
 
 .lrs-tag {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 3px 10px;
+  padding: 2px 8px;
   background: rgba(0, 0, 0, 0.35);
   border-radius: 999px;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -186,6 +196,7 @@ a {
   border-radius: 50%;
   box-shadow: 0 0 8px #43e660;
   animation: lrsBlink 1.2s infinite;
+  flex-shrink: 0;
 }
 
 @keyframes lrsBlink {
@@ -194,28 +205,28 @@ a {
 }
 
 .lrs-game {
-  font-size: 17px;
+  font-size: clamp(14px, 2.5vw, 17px);
   font-weight: 800;
 }
 
 .lrs-time {
   color: #fef08a;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .lrs-num {
-  padding: 3px 16px;
+  padding: 2px 14px;
   background: var(--gold);
   border-radius: 8px;
   color: #064e3b;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 900;
 }
 
 /* ── Header ─────────────────────────────────────────────── */
 .header-life {
   text-align: center;
-  padding: 24px 16px 14px;
+  padding: 20px 14px 12px;
   border-bottom: 1px solid var(--line);
   background: rgba(24, 24, 27, 0.8);
   backdrop-filter: blur(10px);
@@ -223,7 +234,7 @@ a {
 
 .header-life h1 {
   font-family: var(--font-hero);
-  font-size: 46px;
+  font-size: clamp(32px, 8vw, 48px);
   letter-spacing: 2px;
   color: var(--emerald);
   text-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
@@ -232,7 +243,7 @@ a {
 
 .header-life .sub {
   color: var(--dim);
-  font-size: 13px;
+  font-size: clamp(11px, 2vw, 13px);
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 4px;
@@ -240,9 +251,9 @@ a {
 
 /* ── Hero Card ──────────────────────────────────────────── */
 .hero-card-life {
-  margin: 20px auto;
+  margin: 16px auto;
   max-width: 620px;
-  padding: 24px 20px;
+  padding: 20px 16px;
   background: linear-gradient(135deg, #18181b 0%, #09090b 100%);
   border: 2px solid var(--emerald);
   border-radius: 16px;
@@ -255,17 +266,17 @@ a {
   padding: 4px 14px;
   background: var(--emerald);
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: 1px;
   color: #09090b;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .hero-number-life {
-  margin: 6px 0 14px;
+  margin: 4px 0 10px;
   font-family: var(--font-hero);
-  font-size: 80px;
+  font-size: clamp(54px, 14vw, 80px);
   font-weight: 700;
   line-height: 1;
   color: var(--gold);
@@ -278,16 +289,16 @@ a {
 /* ── Results Grid ───────────────────────────────────────── */
 .results-grid-life {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 14px;
-  margin-top: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
 }
 
 .card-life {
   background: var(--bg-card);
   border: 1px solid var(--line);
   border-radius: 12px;
-  padding: 16px;
+  padding: 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -303,14 +314,14 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 52px;
-  height: 46px;
-  padding: 0 10px;
+  min-width: 48px;
+  height: 42px;
+  padding: 0 8px;
   background: rgba(0, 0, 0, 0.5);
   border: 2px solid var(--emerald);
   border-radius: 8px;
   font-family: var(--font-hero);
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 700;
   color: var(--emerald);
 }
@@ -318,7 +329,7 @@ a {
 .card-life-badge.pending {
   border-color: var(--gold);
   color: var(--gold);
-  font-size: 18px;
+  font-size: 16px;
 }
 
 /* ── Monthly Archive ────────────────────────────────────── */
@@ -326,13 +337,15 @@ a {
   background: var(--bg-card);
   border: 1px solid var(--line);
   border-radius: 14px;
-  padding: 18px;
-  margin: 24px 0 32px;
+  padding: 16px 10px;
+  margin: 20px 0 28px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .table-life {
   width: 100%;
+  min-width: 460px;
   border-collapse: collapse;
   font-family: var(--font-mono);
   font-size: 13px;
@@ -340,15 +353,16 @@ a {
 }
 
 .table-life th {
-  padding: 10px 8px;
+  padding: 10px 6px;
   background: rgba(16, 185, 129, 0.15);
   border-bottom: 2px solid var(--emerald);
   color: var(--emerald);
   font-weight: 800;
+  font-size: 12px;
 }
 
 .table-life td {
-  padding: 8px 6px;
+  padding: 7px 4px;
   border: 1px solid var(--line);
 }
 
@@ -366,19 +380,19 @@ a {
 .life-nav-btns {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-top: 16px;
+  gap: 10px;
+  margin-top: 14px;
   flex-wrap: wrap;
 }
 
 .life-btn {
-  padding: 8px 18px;
+  padding: 7px 16px;
   background: #27272a;
   border: 1px solid var(--emerald);
   border-radius: 999px;
   color: var(--emerald);
   font-family: var(--font-main);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -393,26 +407,26 @@ a {
 /* ── Footer ─────────────────────────────────────────────── */
 .footer-life {
   text-align: center;
-  padding: 30px 0;
+  padding: 24px 0;
   border-top: 1px solid var(--line);
-  margin-top: 40px;
+  margin-top: 32px;
 }
 
 .footer-life select {
-  padding: 8px 16px;
+  padding: 6px 12px;
   background: #18181b;
   border: 1px solid var(--emerald);
   border-radius: 6px;
   color: #fff;
   font-family: var(--font-main);
-  font-size: 14px;
-  margin: 0 4px;
+  font-size: 13px;
+  margin: 4px 3px;
 }
 
 .floating-bar {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 16px;
+  right: 14px;
   z-index: 50;
 }
 
@@ -420,14 +434,21 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 12px 22px;
+  padding: 10px 18px;
   background: var(--emerald);
   border: none;
   border-radius: 999px;
   color: #09090b;
   font-family: var(--font-main);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   cursor: pointer;
   box-shadow: 0 4px 18px rgba(16, 185, 129, 0.4);
+}
+
+@media (max-width: 480px) {
+  .wa-life-banner {
+    flex-direction: column;
+    text-align: center;
+  }
 }
