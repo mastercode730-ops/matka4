@@ -1,37 +1,433 @@
-@import "tailwindcss";
+/* ════════════════════════════════════════════════════════
+   SATTA KING LIFE — Matka Satta Biz (inspired by sattaking.life)
+   Cyber Dark Luxury × Neon Emerald & Gold × Live Result Board
+   ════════════════════════════════════════════════════════ */
 
-@layer utilities {
-  .animate-charcter {
-    background-image: linear-gradient(-225deg, #231557 0%, #44107a 29%, #ff1361 67%, #fff800 100%);
-    background-size: 200% auto;
-    color: #fff;
-    background-clip: text;
-    text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textclip 2s linear infinite;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Share+Tech+Mono&family=Bebas+Neue&display=swap');
 
-  @keyframes textclip {
-    to {
-      background-position: 200% center;
-    }
-  }
+:root {
+  --bg:      #09090b;
+  --bg-card: #18181b;
+  --emerald: #10b981;
+  --gold:    #fbbf24;
+  --text:    #ffffff;
+  --dim:     #a1a1aa;
+  --line:    rgba(255, 255, 255, 0.12);
+  --wa:      #25d366;
+  --wa-dark: #15803d;
 
-  .blink-text {
-    animation: blinker 1s linear infinite;
-  }
+  --font-main: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-hero: 'Bebas Neue', sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+}
 
-  @keyframes blinker {
-    50% { opacity: 0; }
-  }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg);
+  background-image: radial-gradient(circle at 50% 0%, #064e3b 0%, var(--bg) 65%);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: var(--font-main);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-bottom: 70px;
+}
+
+a {
+  color: var(--emerald);
+  text-decoration: none;
+}
+
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ── Live Spinner ───────────────────────────────────────── */
+.wait-spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  animation: pulseWait 1.5s ease-in-out infinite;
+}
+
+.clock-hand {
+  transform-origin: 12px 12px;
+  animation: spinClock 2.8s linear infinite;
+}
+
+@keyframes spinClock {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulseWait {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.92); }
+}
+
+/* ── WhatsApp CTAs ──────────────────────────────────────── */
+.btn-wa-life {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: linear-gradient(135deg, var(--wa), var(--wa-dark));
+  border: 1px solid var(--emerald);
+  border-radius: 999px;
+  color: #ffffff !important;
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.btn-wa-life:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.7);
+}
+
+.wa-life-banner {
+  margin: 18px 0;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #09090b 0%, #064e3b 50%, #15803d 100%);
+  border: 2px solid var(--emerald);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.wa-life-title {
+  font-size: 16px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.wa-life-sub {
+  font-size: 13px;
+  color: #a7f3d0;
+  margin-top: 2px;
+}
+
+.floating-wa {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 50;
+}
+
+.life-fab-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  background: linear-gradient(135deg, var(--wa), var(--wa-dark));
+  border: 2px solid var(--emerald);
+  border-radius: 999px;
+  color: #ffffff !important;
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  animation: pulseWa 2s infinite;
+  text-decoration: none;
+}
+
+@keyframes pulseWa {
+  0%, 100% { box-shadow: 0 0 12px rgba(37, 211, 102, 0.5); }
+  50% { box-shadow: 0 0 24px rgba(37, 211, 102, 0.85); }
+}
+
+/* ── Breaking Flash Bar ─────────────────────────────────── */
+.lrs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 14px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #064e3b 0%, #059669 50%, #064e3b 100%);
+  border-bottom: 3px solid var(--gold);
+  color: #ffffff;
+  text-align: center;
+}
+
+.lrs-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.lrs-dot {
+  width: 8px;
+  height: 8px;
+  background: #43e660;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #43e660;
+  animation: lrsBlink 1.2s infinite;
+}
+
+@keyframes lrsBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+.lrs-game {
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.lrs-time {
+  color: #fef08a;
+  font-size: 13px;
+}
+
+.lrs-num {
+  padding: 3px 16px;
+  background: var(--gold);
+  border-radius: 8px;
+  color: #064e3b;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.header-life {
+  text-align: center;
+  padding: 24px 16px 14px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(24, 24, 27, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.header-life h1 {
+  font-family: var(--font-hero);
+  font-size: 46px;
+  letter-spacing: 2px;
+  color: var(--emerald);
+  text-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+  line-height: 1;
+}
+
+.header-life .sub {
+  color: var(--dim);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* ── Hero Card ──────────────────────────────────────────── */
+.hero-card-life {
+  margin: 20px auto;
+  max-width: 620px;
+  padding: 24px 20px;
+  background: linear-gradient(135deg, #18181b 0%, #09090b 100%);
+  border: 2px solid var(--emerald);
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
+}
+
+.hero-chip-life {
+  display: inline-block;
+  padding: 4px 14px;
+  background: var(--emerald);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #09090b;
+  margin-bottom: 10px;
+}
+
+.hero-number-life {
+  margin: 6px 0 14px;
+  font-family: var(--font-hero);
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--gold);
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Results Grid ───────────────────────────────────────── */
+.results-grid-life {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.card-life {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card-life:hover {
+  transform: translateY(-2px);
+  border-color: var(--emerald);
+}
+
+.card-life-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  height: 46px;
+  padding: 0 10px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--emerald);
+  border-radius: 8px;
+  font-family: var(--font-hero);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--emerald);
+}
+
+.card-life-badge.pending {
+  border-color: var(--gold);
+  color: var(--gold);
+  font-size: 18px;
+}
+
+/* ── Monthly Archive ────────────────────────────────────── */
+.archive-card-life {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  margin: 24px 0 32px;
+  overflow-x: auto;
+}
+
+.table-life {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  text-align: center;
+}
+
+.table-life th {
+  padding: 10px 8px;
+  background: rgba(16, 185, 129, 0.15);
+  border-bottom: 2px solid var(--emerald);
+  color: var(--emerald);
+  font-weight: 800;
+}
+
+.table-life td {
+  padding: 8px 6px;
+  border: 1px solid var(--line);
+}
+
+.table-life td.has-num {
+  color: var(--gold);
+  font-weight: 800;
+  background: rgba(251, 191, 36, 0.06);
+}
+
+.table-life tr.today-row td {
+  background: rgba(16, 185, 129, 0.2);
+  color: #ffffff;
+}
+
+.life-nav-btns {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.life-btn {
+  padding: 8px 18px;
+  background: #27272a;
+  border: 1px solid var(--emerald);
+  border-radius: 999px;
+  color: var(--emerald);
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.life-btn:hover,
+.life-btn.active {
+  background: var(--emerald);
+  color: #09090b;
+}
+
+/* ── Footer ─────────────────────────────────────────────── */
+.footer-life {
+  text-align: center;
+  padding: 30px 0;
+  border-top: 1px solid var(--line);
+  margin-top: 40px;
+}
+
+.footer-life select {
+  padding: 8px 16px;
+  background: #18181b;
+  border: 1px solid var(--emerald);
+  border-radius: 6px;
+  color: #fff;
+  font-family: var(--font-main);
+  font-size: 14px;
+  margin: 0 4px;
+}
+
+.floating-bar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 50;
+}
+
+.life-fab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 22px;
+  background: var(--emerald);
+  border: none;
+  border-radius: 999px;
+  color: #09090b;
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.4);
 }
