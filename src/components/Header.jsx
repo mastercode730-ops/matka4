@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Header = () => {
   return (
@@ -18,16 +18,36 @@ const Header = () => {
       <nav className="sticky top-0 bg-gradient-to-r from-green-500 to-green-600 mt-1 mb-2 p-2 flex justify-center z-50 rounded">
         <div className="flex w-full flex-wrap justify-center gap-2 max-w-4xl">
           <div className="flex-1 min-w-[80px]">
-            <a className="block text-center bg-gray-200 text-black font-bold py-1 px-2 rounded w-full" href="/">Home</a>
+            <a
+              className="block text-center bg-gray-200 text-black font-bold py-1 px-2 rounded w-full"
+              href="/"
+            >
+              Home
+            </a>
           </div>
           <div className="flex-1 min-w-[80px]">
-            <a className="block text-center bg-gray-200 text-black font-bold py-1 px-2 rounded w-full" href="/radhe-lottery">Lottery</a>
+            <a
+              className="block text-center bg-gray-200 text-black font-bold py-1 px-2 rounded w-full"
+              href="/radhe-lottery"
+            >
+              Lottery
+            </a>
           </div>
           <div className="flex-1 min-w-[80px]">
-            <a className="block text-center bg-gray-800 text-white font-bold py-1 px-2 rounded w-full" href="/chart">Chart</a>
+            <a
+              className="block text-center bg-gray-800 text-white font-bold py-1 px-2 rounded w-full"
+              href="/chart"
+            >
+              Chart
+            </a>
           </div>
           <div className="flex-1 min-w-[80px]">
-            <a className="block text-center bg-gray-800 text-white font-bold py-1 px-2 rounded w-full" href="/login">Login</a>
+            <a
+              className="block text-center bg-gray-800 text-white font-bold py-1 px-2 rounded w-full"
+              href="https://www.Gabbar247.vip"
+            >
+              Login
+            </a>
           </div>
         </div>
       </nav>
@@ -38,7 +58,13 @@ const Header = () => {
         </div>
         <div className="text-center p-2 bg-white text-black">
           <p className="font-bold">SATTA KING BEST SITE SATTA RESULT</p>
-          <h6 className="text-xs font-semibold mt-1">DELHI BAZAR SATTA KING, DESAWER SATTA KING, FARIDABAD SATTA KING, GALI SATTA KING, GHAZIABAD SATTA KING, GURGAON SATTA KING, JAIPUR DAY SATTA KING, OLD UP KING SATTA KING, SHREE GANESH SATTA KING, SHREE SAI SATTA KING, SIKANDRABAD SATTA KING, SUPER DELHI SATTA KING, SATTA FAST RESULT</h6>
+          <h6 className="text-xs font-semibold mt-1">
+            DELHI BAZAR SATTA KING, DESAWER SATTA KING, FARIDABAD SATTA KING,
+            GALI SATTA KING, GHAZIABAD SATTA KING, GURGAON SATTA KING, JAIPUR
+            DAY SATTA KING, OLD UP KING SATTA KING, SHREE GANESH SATTA KING,
+            SHREE SAI SATTA KING, SIKANDRABAD SATTA KING, SUPER DELHI SATTA
+            KING, SATTA FAST RESULT
+          </h6>
         </div>
       </div>
     </>
