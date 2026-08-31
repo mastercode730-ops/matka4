@@ -46,7 +46,7 @@ const Header = () => {
               className="block text-center bg-gray-800 text-white font-bold py-1 px-2 rounded w-full"
               href="https://www.Gabbar247.vip"
             >
-              Login
+              Login / Register
             </a>
           </div>
         </div>
