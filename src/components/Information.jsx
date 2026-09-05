@@ -86,7 +86,7 @@ const Information = () => {
         <div><b>गेम प्ले के लिए नीचे लिंक पर क्लिक करे 👇</b></div>
         <div><b>🅦🅗🅐🅣🅢🅐🅟🅟 🅝🅤🅜🅑🅔🅡</b></div>
         <div className="my-2">
-          <a className="bg-green-800 text-white font-bold rounded px-2 py-1 inline-block" href="https://wa.me/917589045547">
+          <a className="bg-green-800 text-white font-bold rounded px-2 py-1 inline-block" href="https://wa.me/918360750829">
             WhatsApp Now
           </a>
         </div>
