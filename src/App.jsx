@@ -6,6 +6,10 @@ import {
   SITE_DOMAIN,
 } from "./constants";
 import { fetchTodayResults, fetchMonthlyChart, fetchAnnouncement } from "./api";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsConditions from "./components/TermsConditions";
+import Disclaimer from "./components/Disclaimer";
+import Footer from "./components/Footer";
 
 const MONTH_NAMES = [
   "January",
@@ -37,6 +41,44 @@ export default function App() {
   );
   const [chartData, setChartData] = useState(null);
   const [announcement, setAnnouncement] = useState(null);
+  const [activePage, setActivePage] = useState(() => {
+    const hash = window.location.hash.toLowerCase();
+    if (hash === "#privacy") return "privacy";
+    if (hash === "#terms") return "terms";
+    if (hash === "#disclaimer") return "disclaimer";
+    return "home";
+  });
+
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash === "#privacy") setActivePage("privacy");
+      else if (hash === "#terms") setActivePage("terms");
+      else if (hash === "#disclaimer") setActivePage("disclaimer");
+      else if (
+        hash === "" ||
+        hash === "#" ||
+        hash === "#home" ||
+        hash === "#results" ||
+        hash === "#monthly-chart"
+      ) {
+        setActivePage("home");
+      }
+    };
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
+
+  const navigateTo = (page, e) => {
+    if (e) e.preventDefault();
+    setActivePage(page);
+    if (page === "home") {
+      window.history.pushState(null, "", window.location.pathname);
+    } else {
+      window.location.hash = page;
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const loadResults = useCallback(async () => {
     try {
@@ -160,7 +202,12 @@ export default function App() {
 
       {/* ── HEADER ── */}
       <header className="header-life">
-        <h1>{SITE_NAME}</h1>
+        <h1
+          style={{ cursor: "pointer" }}
+          onClick={(e) => navigateTo("home", e)}
+        >
+          {SITE_NAME}
+        </h1>
         <div className="sub">
           {fmtFullDate(todayDate || new Date())} &bull; {SITE_DOMAIN}
         </div>
@@ -173,6 +220,38 @@ export default function App() {
             flexWrap: "wrap",
           }}
         >
+          <a
+            href="#home"
+            onClick={(e) => navigateTo("home", e)}
+            className={`life-btn ${activePage === "home" ? "active" : ""}`}
+            style={{ padding: "6px 14px", textDecoration: "none" }}
+          >
+            🏠 Home
+          </a>
+          <a
+            href="#privacy"
+            onClick={(e) => navigateTo("privacy", e)}
+            className={`life-btn ${activePage === "privacy" ? "active" : ""}`}
+            style={{ padding: "6px 14px", textDecoration: "none" }}
+          >
+            🔒 Privacy Policy
+          </a>
+          <a
+            href="#terms"
+            onClick={(e) => navigateTo("terms", e)}
+            className={`life-btn ${activePage === "terms" ? "active" : ""}`}
+            style={{ padding: "6px 14px", textDecoration: "none" }}
+          >
+            📜 Terms & Conditions
+          </a>
+          <a
+            href="#disclaimer"
+            onClick={(e) => navigateTo("disclaimer", e)}
+            className={`life-btn ${activePage === "disclaimer" ? "active" : ""}`}
+            style={{ padding: "6px 14px", textDecoration: "none" }}
+          >
+            ⚠️ Disclaimer
+          </a>
           <a
             href={WHATSAPP_URL}
             target="_blank"
@@ -210,6 +289,19 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* ── CONDITIONAL ROUTING: LEGAL PAGES vs HOME ── */}
+      {activePage === "privacy" && (
+        <PrivacyPolicy onBack={(e) => navigateTo("home", e)} />
+      )}
+      {activePage === "terms" && (
+        <TermsConditions onBack={(e) => navigateTo("home", e)} />
+      )}
+      {activePage === "disclaimer" && (
+        <Disclaimer onBack={(e) => navigateTo("home", e)} />
+      )}
+
+      {activePage === "home" && (
 
       <div className="wrap">
         {/* ── WHATSAPP BANNER ── */}
@@ -409,9 +501,11 @@ export default function App() {
           </div>
         </div>
 
-        {/* ── FOOTER ── */}
-        <footer className="footer-life">
-          <p style={{ color: "var(--dim)", marginBottom: 12 }}>
+          <div style={{ marginTop: 24 }}>
+            <Footer onNavigate={navigateTo} />
+          </div>
+
+          <p style={{ color: "var(--dim)", marginTop: 20, marginBottom: 12 }}>
             {SITE_NAME} &bull; {SITE_DOMAIN} &bull; ALL RIGHTS RESERVED 2026
           </p>
           <div style={{ marginBottom: 16 }}>
@@ -450,6 +544,7 @@ export default function App() {
           </div>
         </footer>
       </div>
+      )}
 
       {/* FLOATING WHATSAPP BUTTON */}
       <div className="floating-wa">
