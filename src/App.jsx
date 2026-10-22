@@ -501,6 +501,8 @@ export default function App() {
           </div>
         </div>
 
+        {/* ── FOOTER ── */}
+        <footer className="footer-life">
           <div style={{ marginTop: 24 }}>
             <Footer onNavigate={navigateTo} />
           </div>

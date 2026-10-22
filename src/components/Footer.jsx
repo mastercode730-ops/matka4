@@ -12,7 +12,7 @@ const Footer = ({ onNavigate }) => {
   };
 
   return (
-    <footer className="mt-8 border-4 border-green-600 rounded overflow-hidden">
+    <div className="mt-8 border-4 border-green-600 rounded overflow-hidden">
       <div className="bg-gradient-to-b from-green-500 to-green-700 p-4 text-center">
         <p className="text-white text-sm leading-relaxed mb-2">
           satta king fast result | satta king | satta result | satta king up | satta king online | satta king result | satta king chart | satta record | satta king record | satta king ghaziabad | satta king faridabad | satta king desawar | satta king gali | satta fast
@@ -81,7 +81,7 @@ const Footer = ({ onNavigate }) => {
           © 2018 - 2026 {SITE_NAME} &bull; {SITE_DOMAIN} All Rights Reserved
         </p>
       </div>
-    </footer>
+    </div>
   );
 };
 
